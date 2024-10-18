@@ -3,3 +3,6 @@ transformers
 torch
 beautifulsoup4
 requests
+huggingface_hub
+llama-index-embeddings-huggingface
+llama-index-llms-huggingface
