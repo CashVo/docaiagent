@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with RAG Agent</title>
+</head>
+<body>
+    <h1>Chat with RAG Agent</h1>
+    <div id="chat-window"></div>
+    <input type="text" id="user_input" required>
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById('user_input').value;
+            fetch('/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ user_input: userInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const chatWindow = document.getElementById('chat-window');
+                chatWindow.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+                chatWindow.innerHTML += `<p><strong>Agent:</strong> ${data.response}</p>`;
+            });
+        }
+    </script>
+</body>
+</html>
