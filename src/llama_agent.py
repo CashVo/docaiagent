@@ -15,7 +15,7 @@ def build_rag_agent (user_input):
     Settings.llm = model_data["model"]
     Settings.embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-m3")
 
-    prompt = f"You are an AI assistant specalizing in Pytorch. Answer this question: {user_input}"
+    prompt = f"You are an AI assistant specializing in Pytorch. Answer this question: {user_input}"
 
     index = VectorStoreIndex.from_documents(documents=documents)
     query_engine = index.as_query_engine(similarity_top_k=3, streaming=False)
