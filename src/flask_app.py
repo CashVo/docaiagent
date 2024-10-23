@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 from llama_agent import build_rag_agent  # Import your RAG agent logic
+from utils import init_bot
 
 app = Flask(__name__)
 
@@ -18,4 +19,5 @@ def chat():
 
 
 if __name__ == '__main__':
+    init_bot()
     app.run(debug=True)
