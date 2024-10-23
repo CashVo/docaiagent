@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from llama_agent import build_rag_agent  # Import your RAG agent logic
+from llama_agent import prompt_rag_agent  # Import your RAG agent logic
 from utils import init_bot
 
 app = Flask(__name__)
@@ -12,7 +12,7 @@ def index():
 def chat():
     print("Start chatting...")
     user_input = request.json['user_input']
-    response = build_rag_agent(user_input)
+    response = prompt_rag_agent(user_input)
     html_response = f"<p> {response.response.replace("\n", "<br/>")} </p>"
 
     return { "response": html_response }

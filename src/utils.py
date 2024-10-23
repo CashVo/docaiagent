@@ -12,7 +12,7 @@ def init_bot():
     """Initialize the bot with the following tasks:
     1) Load content
     2) Index content with LlamaIndex
-    3) Set embedding
+    3) Load model
 
     Finally, stores the initialized objects into the bot_data list
     """
